@@ -25,12 +25,7 @@ public class GodNode implements Node {
 
     @Override
     public String display() {
-        switch (this.operator.getOperator()) {
-            case "+" : return leftOperand.display() + " + " + rightOperand.display();
-            case "-" : return leftOperand.display() + " - " + rightOperand.display();
-            case "*" : return leftOperand.display() + " * " + rightOperand.display();
-            default  : throw new UnsupportedOperationException();
-        }
+        return operator.display(leftOperand, rightOperand);
     }
 
 }

@@ -10,4 +10,8 @@ public class Operator {
     public String getOperator() {
         return operator;
     }
+
+    public String display(Node leftOperand, Node rightOperand) {
+        return leftOperand.display() + " " + getOperator() + " " + rightOperand.display();
+    }
 }
