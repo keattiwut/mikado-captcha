@@ -8,13 +8,10 @@ public class GodNode extends ValueNode implements Node {
     private Node rightOperand;
 
     public GodNode(String operator, Node leftOperand, Node rightOperand) {
+        super(0);
         this.operator = operator;
         this.leftOperand = leftOperand;
         this.rightOperand = rightOperand;
-    }
-
-    public GodNode(Integer value) {
-        this.value = value;
     }
 
     @Override
