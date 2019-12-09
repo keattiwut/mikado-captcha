@@ -1,14 +1,13 @@
 package com.thoughtworks.xconf.th.captcha;
 
-public class GodNode extends ValueNode implements Node {
+public class GodNode implements Node {
 
-    private String operator = "#";
+    private Operator operator;
 
     private Node leftOperand;
     private Node rightOperand;
 
-    public GodNode(String operator, Node leftOperand, Node rightOperand) {
-        super(0);
+    public GodNode(Operator operator, Node leftOperand, Node rightOperand) {
         this.operator = operator;
         this.leftOperand = leftOperand;
         this.rightOperand = rightOperand;
@@ -16,22 +15,20 @@ public class GodNode extends ValueNode implements Node {
 
     @Override
     public Integer compute() {
-        switch (this.operator) {
+        switch (this.operator.getOperator()) {
             case "+" : return leftOperand.compute() + rightOperand.compute();
             case "-" : return leftOperand.compute() - rightOperand.compute();
             case "*" : return leftOperand.compute() * rightOperand.compute();
-            case "#" : return this.value;
             default  : throw new UnsupportedOperationException();
         }
     }
 
     @Override
     public String display() {
-        switch (this.operator) {
+        switch (this.operator.getOperator()) {
             case "+" : return leftOperand.display() + " + " + rightOperand.display();
             case "-" : return leftOperand.display() + " - " + rightOperand.display();
             case "*" : return leftOperand.display() + " * " + rightOperand.display();
-            case "#" : return this.value + "";
             default  : throw new UnsupportedOperationException();
         }
     }
