@@ -15,12 +15,7 @@ public class GodNode implements Node {
 
     @Override
     public Integer compute() {
-        switch (this.operator.getOperator()) {
-            case "+" : return leftOperand.compute() + rightOperand.compute();
-            case "-" : return leftOperand.compute() - rightOperand.compute();
-            case "*" : return leftOperand.compute() * rightOperand.compute();
-            default  : throw new UnsupportedOperationException();
-        }
+        return operator.compute(leftOperand, rightOperand);
     }
 
     @Override

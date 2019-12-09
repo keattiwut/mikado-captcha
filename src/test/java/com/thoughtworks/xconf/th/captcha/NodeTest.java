@@ -15,14 +15,14 @@ public class NodeTest {
 
     @Test
     public void display_OperatorNode_printsTheEquation() {
-        Node operatorNode = new GodNode(new Operator("+"), new ValueNode(1), new ValueNode(2));
+        Node operatorNode = new GodNode(new Plus(), new ValueNode(1), new ValueNode(2));
         assertEquals("1 + 2", operatorNode.display());
     }
 
     @Test
     public void display_complexOperatorNodes() {
-        Node f = new GodNode(new Operator("*"), new ValueNode(2), new ValueNode(5));
-        Node g = new GodNode(new Operator("+"), f, new ValueNode(3));
+        Node f = new GodNode(new Multiply(), new ValueNode(2), new ValueNode(5));
+        Node g = new GodNode(new Plus(), f, new ValueNode(3));
 
         assertEquals("2 * 5 + 3", g.display());
     }
@@ -35,14 +35,14 @@ public class NodeTest {
 
     @Test
     public void compute_OperatorNode_givesTheComputedResult() {
-        Node opsNode = new GodNode(new Operator("-"), new ValueNode(5), new ValueNode(3));
+        Node opsNode = new GodNode(new Minus(), new ValueNode(5), new ValueNode(3));
         assertEquals(2, opsNode.compute().intValue());
     }
 
     @Test
     public void compute_complexOperatorNodes() {
-        Node f = new GodNode(new Operator("*"), new ValueNode(2), new ValueNode(5));
-        Node g = new GodNode(new Operator("+"), f, new ValueNode(3));
+        Node f = new GodNode(new Multiply(), new ValueNode(2), new ValueNode(5));
+        Node g = new GodNode(new Plus(), f, new ValueNode(3));
 
         assertEquals(13, g.compute().intValue());
     }
